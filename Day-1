@@ -1,4 +1,4 @@
-Completion Status :- 1/270
+Completion Status :- 5/270
 Find the Duplicated Number
 class Solution {
     public int findDuplicate(int[] nums) {
@@ -14,8 +14,7 @@ class Solution {
 [OR]
 Complexity Reduced:-
 class Solution {
-    public int findDuplicate(int[] nums) {
-        
+    public int findDuplicate(int[] nums) { 
         HashSet<Integer>a=new HashSet<>();
         for(int i=0;i<nums.length;i++){
             if(a.contains(nums[i])){
@@ -26,3 +25,141 @@ class Solution {
         return nums[0];
     }
 }
+---------------------------------------------------------------------------------------------------------------------------------------
+75. Sort colours
+class Solution {
+    public void sortColors(int[] nums) {
+        //Arrays.sort(nums);
+       for(int i=0;i<nums.length-1;i++){
+           for(int j=0;j<nums.length-1-i;j++){
+               if(nums[j]>nums[j+1]){
+               int t=nums[j];
+               nums[j]=nums[j+1];
+               nums[j+1]=t;
+               }
+           }
+       }
+        
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+26. Remove Duplicates from Sorted Array
+class Solution {
+    public int removeDuplicates(int[] nums) {
+       TreeSet<Integer>a=new TreeSet<>();
+        for(int i:nums){
+            a.add(i);
+        }
+        int j=0;
+        for(int i:a){
+            nums[j++]=i;
+        }
+        return a.size();
+    }
+}
+[OR]
+ ArrayList<Integer>a=new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(!a.contains(nums[i])){
+                a.add(nums[i]);
+            }
+        }
+        int j=0;
+        for(int i:a){
+            nums[j++]=i;
+        }return a.size();
+
+[OR]
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j=1;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]!=nums[i-1]){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+73. Set Matrix Zeroes
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int m=matrix.length;
+        int n=matrix[0].length;
+        int m2[][]=new int[matrix.length][matrix[0].length];
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                m2[i][j]=matrix[i][j];
+            }
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(m2[i][j]==0){
+                    for(int k=0;k<n;k++){//cols
+                        matrix[i][k]=0;
+                    }
+                    for(int k=0;k<m;k++){
+                        matrix[k][j]=0;
+                    }
+                }
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+283. Move Zeroes
+class Solution {
+    public void moveZeroes(int[] nums) {
+        if(nums.length==0){
+            return;
+        }
+        int b[]=new int[nums.length];
+        int j=0;
+       for(int i=0;i<nums.length;i++){
+           if(nums[i]!=0){
+               b[j]=nums[i];
+               j++;
+           }
+       }
+        int k=0;
+        for(int i:b){
+            nums[k++]=i;
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+283. Move Zeroes
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int l=0;
+        int r=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=0){
+                int t=nums[l];
+                nums[l]=nums[i];
+                nums[i]=t;
+                l++;
+            }
+        }
+[or]
+class Solution {
+    public void moveZeroes(int[] nums) {
+        if(nums.length==0){
+            return;
+        }
+        int b[]=new int[nums.length];
+        int j=0;
+       for(int i=0;i<nums.length;i++){
+           if(nums[i]!=0){
+               b[j]=nums[i];
+               j++;
+           }
+       }
+        int k=0;
+        for(int i:b){
+            nums[k++]=i;
+        }
+}}
+-------------------------------------------------------------------------------------------------------------------------------------
