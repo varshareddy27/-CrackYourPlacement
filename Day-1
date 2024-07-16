@@ -1,1 +1,28 @@
-Find the 
+Completion Status :- 1/270
+Find the Duplicated Number
+class Solution {
+    public int findDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]==nums[i-1]){
+                return nums[i];
+            }
+        }
+        return nums[0];
+    }
+}
+[OR]
+Complexity Reduced:-
+class Solution {
+    public int findDuplicate(int[] nums) {
+        
+        HashSet<Integer>a=new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            if(a.contains(nums[i])){
+                return nums[i];
+            }
+            a.add(nums[i]);
+        }
+        return nums[0];
+    }
+}
