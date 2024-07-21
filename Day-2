@@ -1,0 +1,56 @@
+121. Best Time to Buy and Sell Stock
+class Solution {
+    public int maxProfit(int[] prices) {
+    int p=0;
+    int minu=Integer.MAX_VALUE;
+    int maxu=Integer.MIN_VALUE;
+        for(int i=0;i<prices.length;i++){
+           minu=Math.min(minu,prices[i]);
+        maxu=Math.max(maxu,prices[i]-minu);
+        }return maxu;
+    }
+}
+----------------
+Chocolate Distribution Problem
+class Solution
+{
+    public long findMinDiff (ArrayList<Integer> a, int n, int m)
+    {
+        // your code here
+        Collections.sort(a);
+        int k=Integer.MAX_VALUE;
+        for(int i=0;i<=a.size()-m;i++)
+        {
+           k= Math.min(k,a.get(i+m-1)-a.get(i));
+        }
+        return k;
+    }
+}
+--------------
+1. TWO SUM
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int a[]=new int [2];
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]+nums[j]==target){
+                    a[0]=i;
+                    a[1]=j;
+                    return a;
+                }
+            }
+        }return a;
+}}
+---------------------------
+122. Best Time to Buy Stock
+class Solution {
+    public int maxProfit(int[] prices) {
+        int p=0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]>prices[i-1]){
+                p+=prices[i]-prices[i-1];
+            }
+        }return p;
+    }
+}
+------------------------------------------
